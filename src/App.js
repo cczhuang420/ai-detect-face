@@ -165,7 +165,7 @@ class App extends Component {
 
   onBtnSubmit = () => {
     this.setState({ imageUrl: this.state.input });
-    fetch("https://ai-detect-app.herokuapp.com/imageApi", {
+    fetch("http://localhost:3000/imageApi", {
       method: "post",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -175,7 +175,7 @@ class App extends Component {
       .then((response) => response.json())
       .then((data) => {
         if (data) {
-          fetch("https://ai-detect-app.herokuapp.com/image", {
+          fetch("http://localhost:3000/image", {
             method: "put",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ id: this.state.user.id }),
